@@ -37,7 +37,7 @@ public class Ejercicio1 {
             while ((linea = lector.readLine()) != null){
                 System.out.println(linea);
             }
-            
+
             lector.close();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
