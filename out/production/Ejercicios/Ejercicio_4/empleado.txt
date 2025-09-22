@@ -1,0 +1,4 @@
+Juan;25;Programador
+Ana;30;Diseñadora
+Marta;26;Interiorista
+Jose;40;Ingeniero
