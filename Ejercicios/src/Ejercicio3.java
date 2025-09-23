@@ -8,19 +8,18 @@ public class Ejercicio3 {
     public static void main(String[] args) {
         File archivo = new File("Ejercicios/src/salida.txt");
         Scanner entrada = new Scanner(System.in);
+        String nombre;
 
         try {
             BufferedWriter escritor = new BufferedWriter(new FileWriter(archivo, true));
-            while (true){
+            do{
                 System.out.print("Introduce el nombre: ");
-                String nombre = entrada.nextLine();
+                nombre = entrada.nextLine();
 
-                if (nombre.equalsIgnoreCase("fin")){
-                    break;
+                if (!nombre.equals("fin")){
+                    escritor.write(nombre + "\n");
                 }
-
-                escritor.write(nombre + "\n");
-            }
+            } while (!nombre.equals("fin"));
 
             escritor.close();
             System.out.println("Nombres escritos correctamente en el archivo");
