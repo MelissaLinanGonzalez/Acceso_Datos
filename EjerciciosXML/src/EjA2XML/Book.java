@@ -11,7 +11,6 @@ public class Book {
     public int year;
     public double price;
     public String currency;
-    public String role;
 
     public String getId() {
         return id;
@@ -77,20 +76,35 @@ public class Book {
         this.currency = currency;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 
     @Override
     public String toString() {
+        String autores;
+        if(authors.isEmpty()){
+            autores = "N/A";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < authors.size(); i++) {
+                sb.append(authors.get(i).toString());
+                if (i < authors.size() -1){
+                    sb.append(", ");
+                }
+            }
+            autores = sb.toString();
+        }
+
+        String categorias;
+        if(categories.isEmpty()){
+            categorias = "N/A";
+        } else {
+            categorias = String.join(", ", categories);
+        }
+
+
         return "[" + id + "] " + title + "(" + year + ")" + '\n' +
-                "\tISBN: " + isbn +
-                "\tAutores: " + authors + "(" + role + ")\n"+
-                "\tCategorías: " + categories + "\n" +
+                "\tISBN: " + isbn + "\n" +
+                "\tAutores: " + autores + "\n" +
+                "\tCategorías: " + categorias + "\n" +
                 "\tPrecio: " + price + currency;
     }
 

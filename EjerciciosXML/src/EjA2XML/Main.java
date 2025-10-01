@@ -7,7 +7,10 @@ public class Main {
     public static void main(String[] args) throws Exception{
         File xml = new File("EjerciciosXML/src/EjA2XML/catalogo.xml");
         List<Book> books;
+
+
         books = Reader.read(xml);
-        System.out.println("Libros:");
+        System.out.println("[DOM] Libros:");
+        books.forEach(System.out::println);
     }
 }

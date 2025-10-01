@@ -1,0 +1,41 @@
+<library>
+  <book id="b1" isbn="978-0134685991">
+    <title>Effective Java</title>
+    <authors>
+      <author role="primary">Joshua Bloch</author>
+    </authors>
+    <categories>
+      <category>Java</category>
+      <category>Best Practices</category>
+    </categories>
+    <year>2018</year>
+    <price currency="EUR">45.90</price>
+  </book>
+
+  <book id="b2" isbn="978-0132350884">
+    <title>Clean Code</title>
+    <authors>
+      <author role="primary">Robert C. Martin</author>
+      <author role="contributor">Dean Wampler</author>
+    </authors>
+    <categories>
+      <category>Software Engineering</category>
+    </categories>
+    <year>2008</year>
+    <price currency="EUR">38.50</price>
+  </book>
+
+  <book id="b3" isbn="978-0596007126">
+    <title>Head First Design Patterns</title>
+    <authors>
+      <author role="primary">Eric Freeman</author>
+      <author>Elisabeth Robson</author>
+    </authors>
+    <categories>
+      <category>Design Patterns</category>
+      <category>OOP</category>
+    </categories>
+    <year>2020</year>
+    <price currency="USD">29.99</price>
+  </book>
+</library>

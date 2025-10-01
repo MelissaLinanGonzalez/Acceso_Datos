@@ -2,6 +2,7 @@ package EjA2XML;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -25,17 +26,30 @@ public class Reader {
             Book b = new Book();
             b.id = e.getAttribute("id");
             b.title  = textOf(e, "title");
-            //b.author = textOf(e, "author");
+            b.isbn = e.getAttribute("isbn");
+
             NodeList authors = e.getElementsByTagName("author");
             if (authors.getLength()>0){
                 b.authors = new ArrayList<>();
 
                 for (int j = 0; j < authors.getLength(); j++) {
                     Element elemento = (Element) authors.item(j);
-                    b.authors.add(elemento.getTextContent().trim());
+                    String name = elemento.getTextContent().trim();
+                    String role = elemento.getAttribute("role");
+                    b.authors.add(String.valueOf(new Author(name, role)));
+
+                }
+            }
+            NodeList categories = e.getElementsByTagName("category");
+            if (categories.getLength()>0){
+                b.categories = new ArrayList<>();
+                for (int k = 0; k < categories.getLength(); k++) {
+                    Element ele = (Element) categories.item(k);
+                    b.categories.add(ele.getTextContent().trim());
                 }
             }
 
+            b.currency = e.getAttribute("currency");
 
             b.year   = parseIntSafe(textOf(e, "year"));
             b.price  = parseDoubleSafe(textOf(e, "price"));
