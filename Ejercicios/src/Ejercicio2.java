@@ -27,6 +27,7 @@ public class Ejercicio2 {
 //            System.out.println("Error: " + e.getMessage());
 //        }
 
+        System.out.println(10 + 20 + "java");
         ArrayList<Integer> numeros = new ArrayList<>();
 
         try {
