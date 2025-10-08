@@ -2,7 +2,6 @@ package EjA2XML;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -11,7 +10,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Reader {
+public class DomReader {
 
     public static List<Book> read(File xmlFile) throws Exception {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -53,6 +52,10 @@ public class Reader {
 
             b.year   = parseIntSafe(textOf(e, "year"));
             b.price  = parseDoubleSafe(textOf(e, "price"));
+            Element priceElement = (Element) e.getElementsByTagName("price").item(0);
+            if (priceElement != null) {
+                b.currency = priceElement.getAttribute("currency");
+            }
             books.add(b);
         }
         return books;

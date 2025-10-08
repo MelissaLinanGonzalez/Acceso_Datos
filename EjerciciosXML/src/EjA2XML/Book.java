@@ -101,11 +101,11 @@ public class Book {
         }
 
 
-        return "[" + id + "] " + title + "(" + year + ")" + '\n' +
+        return "\n[" + id + "] " + title + "(" + year + ")" + '\n' +
                 "\tISBN: " + isbn + "\n" +
                 "\tAutores: " + autores + "\n" +
                 "\tCategorías: " + categorias + "\n" +
-                "\tPrecio: " + price + currency;
+                "\tPrecio: " + price + " " + currency;
     }
 
 }
