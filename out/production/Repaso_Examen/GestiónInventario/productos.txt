@@ -1,0 +1,2 @@
+1|ratón|periferico|80|30
+2|teclado|periferico|100|15
