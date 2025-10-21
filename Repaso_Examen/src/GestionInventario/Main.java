@@ -1,4 +1,4 @@
-package GestiónInventario;
+package GestionInventario;
 
 import java.io.*;
 import java.util.Scanner;
