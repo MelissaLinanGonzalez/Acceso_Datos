@@ -1,0 +1,4 @@
+1|Melissa|Liñán González|25481936S|Dev|2500
+2|Ismael|Rejano Zapata|78451236W|Camarero|1500
+3|Luis|Liñán Osuna|96587412V|Podador|2000
+4|Pepito|Rodriguez|12345678Q|Profesor|1200
