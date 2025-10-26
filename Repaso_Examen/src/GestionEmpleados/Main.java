@@ -168,7 +168,7 @@ public class Main {
             System.out.print("Introduzca el salario para mostrar los empleados con salario igual o superior: ");
             double salario = entrada.nextDouble();
 
-            
+
             try {
                 BufferedReader lector = new BufferedReader(new FileReader(archivo));
                 String linea;
