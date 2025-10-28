@@ -1,8 +1,7 @@
 package cursoSpringBoot.controllers;
 
 import cursoSpringBoot.domain.Customer;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,4 +21,22 @@ public class CustomerController {
     public List<Customer> getCustomers(){
         return customers;
     }
+
+    @GetMapping("/clientes/{userName}")
+    public Customer getCliente(@PathVariable String userName){
+        for (Customer c : customers){
+            if (c.getUserName().equalsIgnoreCase(userName)){
+                return c;
+            }
+        }
+        return null;
+    }
+
+    @PostMapping("/clientes")
+    public Customer postCliente(@RequestBody Customer customer){
+        customers.add(customer);
+        return customer;
+    }
+
+    
 }
