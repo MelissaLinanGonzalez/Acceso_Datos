@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
+@RequestMapping("/clientes")
 public class CustomerController {
 
     private List<Customer> customers = new ArrayList<>(Arrays.asList(
@@ -17,12 +18,14 @@ public class CustomerController {
             new Customer(456, "Nadia Fernández", "nadiaF", "nohaynadiecomonadia88")
     ));
 
-    @GetMapping("/clientes")
+    //@RequestMapping(method = RequestMethod.GET)
+    @GetMapping // AMBAS DECORACIONES SON VALIDAS
     public List<Customer> getCustomers(){
         return customers;
     }
 
-    @GetMapping("/clientes/{userName}")
+    //@RequestMapping(value = "/{userName}", method = RequestMethod.GET)
+    @GetMapping("/{userName}")
     public Customer getCliente(@PathVariable String userName){
         for (Customer c : customers){
             if (c.getUserName().equalsIgnoreCase(userName)){
@@ -32,13 +35,15 @@ public class CustomerController {
         return null;
     }
 
-    @PostMapping("/clientes")
+    //@RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     public Customer postCliente(@RequestBody Customer customer){
         customers.add(customer);
         return customer;
     }
 
-    @PutMapping("/clientes")
+    //@RequestMapping(method = RequestMethod.PUT)
+    @PutMapping
     public Customer putCliente(@RequestBody Customer customer){
         for (Customer c : customers){
             if (customer.getID() == c.getID()){
@@ -51,7 +56,8 @@ public class CustomerController {
         return null;
     }
 
-    @DeleteMapping("/clientes/{id}")
+    //@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping("{id}")
     public Customer deleteCliente(@PathVariable int id){
         for (Customer c : customers){
             if (c.getID() == id){
@@ -63,7 +69,8 @@ public class CustomerController {
         return null;
     }
 
-    @PatchMapping("/clientes")
+    //@RequestMapping(method = RequestMethod.PATCH)
+    @PatchMapping
     public Customer patchCliente(@RequestBody Customer customer){
         for (Customer c : customers){
             if (c.getID() == customer.getID()){
