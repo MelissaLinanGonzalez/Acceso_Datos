@@ -17,7 +17,7 @@ public class ValidarPalindromoController {
      * @return Un mensaje indicando si la palabra es un palindromo o no
      */
     @GetMapping("/validar-palindromo/{palabra}")
-    public String validadPalindromo(@PathVariable String palabra){ 
+    public String validarPalindromo(@PathVariable String palabra){
         StringBuilder sb = new StringBuilder(palabra);
         String palabraInvertida = sb.reverse().toString();
         if (palabra.equals(palabraInvertida)){
