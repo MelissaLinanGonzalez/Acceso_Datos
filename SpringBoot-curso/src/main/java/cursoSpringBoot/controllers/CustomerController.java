@@ -4,7 +4,9 @@ import cursoSpringBoot.domain.Customer;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -43,7 +45,17 @@ public class CustomerController {
     @PostMapping
     public ResponseEntity<?> postCliente(@RequestBody Customer customer){
         customers.add(customer);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Cliente creado exitósamente: " + customer.getUserName());
+
+        // Nuevo recurso creado
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequestUri()
+                .path("/{userName}")
+                .buildAndExpand(customer.getUserName())
+                .toUri();
+
+        return ResponseEntity.created(location).body(customer);
+        //return ResponseEntity.created(location).build();
+        //return ResponseEntity.status(HttpStatus.CREATED).body("Cliente creado exitósamente: " + customer.getUserName());
     }
 
     //@RequestMapping(method = RequestMethod.PUT)
@@ -54,7 +66,7 @@ public class CustomerController {
                 c.setName(customer.getName());
                 c.setUserName(customer.getUserName());
                 c.setPassword(customer.getPassword());
-                return ResponseEntity.ok("Cliente modificado correctamente: " + c.getID());
+                return ResponseEntity.noContent().build();
             }
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cliente no encontrado: " + customer.getID());
@@ -67,7 +79,7 @@ public class CustomerController {
             if (c.getID() == id){
                 customers.remove(c);
 
-                return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Cliente con id " + id + " eliminado correctamente");
+                return ResponseEntity.noContent().build();
             }
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cliente con id " + id + " no encontrado");

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Portatil gaming",
+    "price": 805.45,
+    "stock": 10
+  },
+  {
+    "id": 2,
+    "name": "Samsung S24 Ultra",
+    "price": 1855.5,
+    "stock": 5
+  },
+  {
+    "id": 3,
+    "name": "Monitor Acer",
+    "price": 100.0,
+    "stock": 32
+  },
+  {
+    "id": 4,
+    "name": "Teclado Logi mecanico",
+    "price": 25.3,
+    "stock": 22
+  }
+]
