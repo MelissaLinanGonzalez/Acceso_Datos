@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/EjerciciosXML/EjerciciosXML.iml" filepath="$PROJECT_DIR$/EjerciciosXML/EjerciciosXML.iml" />
       <module fileurl="file://$PROJECT_DIR$/Examen_22_10/Examen_22_10.iml" filepath="$PROJECT_DIR$/Examen_22_10/Examen_22_10.iml" />
       <module fileurl="file://$PROJECT_DIR$/Repaso_Examen/Repaso_Examen.iml" filepath="$PROJECT_DIR$/Repaso_Examen/Repaso_Examen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TeoriaHilos/TeoriaHilos.iml" filepath="$PROJECT_DIR$/TeoriaHilos/TeoriaHilos.iml" />
     </modules>
   </component>
 </project>
